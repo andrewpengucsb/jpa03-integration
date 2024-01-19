@@ -1,4 +1,4 @@
-package com.robinfinch.oslo.test;
+package edu.ucsb.cs156.example;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;

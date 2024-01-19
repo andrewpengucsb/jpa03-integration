@@ -1,6 +1,6 @@
-package com.robinfinch.oslo.web;
+package edu.ucsb.cs156.example.controllers;
 
-import com.robinfinch.oslo.test.OAuthUtils;
+import edu.ucsb.cs156.example.OAuthUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +12,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static com.robinfinch.oslo.test.OAuthUtils.getOauthAuthenticationFor;
+import static edu.ucsb.cs156.example.OAuthUtils.getOauthAuthenticationFor;
 import static java.lang.System.lineSeparator;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.authentication;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

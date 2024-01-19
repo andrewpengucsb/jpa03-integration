@@ -1,4 +1,4 @@
-package com.robinfinch.oslo.test;
+package edu.ucsb.cs156.example;
 
 import com.github.tomakehurst.wiremock.common.FileSource;
 import com.github.tomakehurst.wiremock.extension.Parameters;

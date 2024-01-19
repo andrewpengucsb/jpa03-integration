@@ -1,9 +1,9 @@
-package com.robinfinch.oslo.web;
+package edu.ucsb.cs156.example;
 
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import com.robinfinch.oslo.test.CaptureStateTransformer;
+import edu.ucsb.cs156.example.CaptureStateTransformer;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -80,7 +80,7 @@ public class WebsiteIntegrationTests {
 
         HtmlPage page = webClient.getPage("http://localhost:8080/");
 
-        assertEquals("Welcome" + System.lineSeperator() +
+        assertEquals("Welcome\r\n" +
                 " Hello, Mark Hoogenboom!", page.asText());
     }
 }
