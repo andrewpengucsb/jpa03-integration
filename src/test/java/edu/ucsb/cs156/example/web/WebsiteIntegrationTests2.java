@@ -19,30 +19,26 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import edu.ucsb.cs156.example.testconfig.IntegrationTestConfig;
 import org.springframework.test.web.servlet.htmlunit.MockMvcWebClientBuilder;
 import org.springframework.web.context.WebApplicationContext;
-import org.springframework.context.annotation.Import;
-import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.UserRequestPostProcessor;
-
-import edu.ucsb.cs156.example.repositories.UserRepository;
-import edu.ucsb.cs156.example.services.CurrentUserService;
-import edu.ucsb.cs156.example.models.CurrentUser;
-import edu.ucsb.cs156.example.testconfig.TestConfig;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.microsoft.playwright.*;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = { ExampleApplication.class, IntegrationTestConfig.class })
 @ActiveProfiles("integration")
-public class WebsiteIntegrationTests {
+public class WebsiteIntegrationTests2 {
 
     private Browser browser;
     private Page page;
     private WireMockServer wireMockServer;
+
+//     @Autowired
+//     private WebApplicationContext context;
+
+//     private WebClient webClient;
 
     @BeforeEach
     public void setup() {
@@ -87,6 +83,10 @@ public class WebsiteIntegrationTests {
         browser = Playwright.create().chromium().launch();
         BrowserContext context = browser.newContext();
         page = context.newPage();
+
+        // webClient = MockMvcWebClientBuilder
+        // .webAppContextSetup(context, springSecurity())
+        // .build();
     }
 
     @AfterEach
@@ -101,7 +101,7 @@ public class WebsiteIntegrationTests {
 
         page.navigate("http://localhost:8080/");
 
-        // String greetingText = page.innerText("#greeting");
-        // assertEquals("Hello, Mark Hoogenboom!", greetingText);
+        // HtmlPage page = webClient.getPage("http://localhost:8080/");
+        // assertEquals("Welcome\r\n Hello, Mark Hoogenboom!", page.asText());
     }
 }
